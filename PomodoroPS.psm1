@@ -23,6 +23,20 @@ Function Start-Pomodoro {
         $balloon.ShowBalloonTip($Milliseconds)
     }
 
+    Function Display-MessageBox{
+        param(
+            [parameter(Mandatory)]
+            [string]$Text,
+            [parameter(Mandatory)]
+            [string]$Title,
+            [string]$Button = '0', #OK 0, OKCancel 1, YesNoCancel 3, YesNo 4
+            [string]$Icon = 'Asterisk'
+        )
+
+        Add-Type -AssemblyName System.Windows.Forms 
+        [System.Windows.Forms.MessageBox]::Show("$Text","$Title","$Button","$Icon")
+    }
+
     Function Start-Timer{
         param(
             [parameter(Mandatory)]
@@ -32,7 +46,7 @@ Function Start-Pomodoro {
             [ValidateRange(1,1440)]
             [int]$Minutes,
             [parameter(Mandatory)]
-            [ValidateRange(1,1440)]
+            [ValidateRange(0,1440)]
             [int]$WarningMinutes
             
         )
@@ -41,6 +55,9 @@ Function Start-Pomodoro {
         if($WarningMinutes -gt $Minutes){
             Write-Warning "You selected $WarningMinutes Warning Minutes and $Minutes Total Minutes. Setting Warning Minutes to 1/5 your Total Minutes."
             $WarningMinutes = [int]($Minutes / 5)
+            if($WarningMinutes -lt 1){
+                $WarningMinutes = 1
+            }
 
         }
 
@@ -49,7 +66,8 @@ Function Start-Pomodoro {
         [int]$WarnSec = $WarningMinutes * 60
         [int]$WarnSound = 0
 
-        Make-Toast -Text "Starting $Activity for $Minutes minutes. You will be warned when there are $WarningMinutes minutes left." -Title $Activity -Milliseconds ($WarnSec * 1000)
+        Display-MessageBox -Text "Starting $Activity for $Minutes minutes. You will be warned when there are $WarningMinutes minutes left." -Title $Activity
+        #Make-Toast -Text "Starting $Activity for $Minutes minutes. You will be warned when there are $WarningMinutes minutes left." -Title $Activity -Milliseconds ($WarnSec * 1000)
         Write-Host "Starting $Activity for $Minutes minutes. You will be warned when there are $WarningMinutes minutes left."
 
         # Better grammar
@@ -69,8 +87,8 @@ Function Start-Pomodoro {
             if($timeLeft -le $WarnSec){
                 if($WarnSound -lt 1){
                     Write-Warning "$WarningText."
+                    #Display-MessageBox -Text $WarningText -Title $Activity
                     Make-Toast -Text $WarningText -Title $Activity -Miliseconds ($WarnSec * 1000)
-                    #[System.Media.SystemSounds]::Exclamation.Play();
                     $WarnSound++
                 }
                 
@@ -84,17 +102,17 @@ Function Start-Pomodoro {
             $StartSec++
         }
 
-        #[System.Media.SystemSounds]::Hand.Play();
-        Make-Toast -Text "You completed your $Activity!" -Title $Activity -Miliseconds 60000
+        Display-MessageBox -Text "You completed your $Activity!" -Title $Activity
+        #Make-Toast -Text "You completed your $Activity!" -Title $Activity -Miliseconds 60000
         Write-Host "You completed your $Activity!"
     }
 
     
     
     # Start the Pomodoro
-    Start-Timer -Activity 'Pomodoro' -Minutes $PomodoroMinutes -WarningMinutes "$($PomodoroMinutes / 5)"
+    Start-Timer -Activity 'Pomodoro' -Minutes "$PomodoroMinutes" -WarningMinutes "$($PomodoroMinutes / 5)"
     # Start the Break
-    Start-Timer -Activity 'Break' -Minutes $BreakMinutes -WarningMinutes "$($BreakMinutes / 5)"
+    Start-Timer -Activity 'Break' -Minutes "$BreakMinutes" -WarningMinutes "$($BreakMinutes / 5)"
 
 }
 
