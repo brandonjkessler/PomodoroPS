@@ -3,6 +3,7 @@ Use the Pomodoro Technique from PowerShell
 
 # DESCRIPTION
 Use the Pomodoro Technique from PowerShell. Import the Module and type `Start-Pomodoro` from within PowerShell.
+[The Pomodoro Technique: An Effective Time Management Tool](https://science.nichd.nih.gov/confluence/display/newsletter/2020/05/07/The+Pomodoro+Technique%3A+An+Effective+Time+Management+Tool)
 
 # PARAMETERS
 ## PomodoroMinutes
