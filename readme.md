@@ -7,7 +7,7 @@ Use the Pomodoro Technique from PowerShell. Import the Module and type `Start-Po
 
 # INSTALLATION
 1. Save the `PomodoroPS.psm1` to `C:\Program Files\WindowsPowerShell\Modules\PomodoroPS`
-1. Run `Import-Module -Name PomodoroPS.psm1`
+1. Run `Import-Module -Name PomodoroPS`
 1. ????
 1. Profit!
 
