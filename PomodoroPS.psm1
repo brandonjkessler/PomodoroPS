@@ -50,7 +50,14 @@ Function Start-Pomodoro {
         [int]$StartSec = 0
         [int]$WarnSec = $WarningMinutes * 60
         [int]$WarnSound = 0
-        [string]$WarningText = "Less than $WarningMinutes minutes left!"
+
+        # Better grammar
+        if($WarningMinutes -eq 1){
+            [string]$WarningText = "Less than $WarningMinutes minute left!"
+        } else {
+            [string]$WarningText = "Less than $WarningMinutes minutes left!"
+        }
+        
 
         ($StartSec)..($TotalSec) | ForEach-Object {
             Start-Sleep -seconds 1
