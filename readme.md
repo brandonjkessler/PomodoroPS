@@ -6,6 +6,13 @@ Use the Pomodoro Technique from PowerShell. Import the Module and type `Start-Po
 [The Pomodoro Technique: An Effective Time Management Tool](https://science.nichd.nih.gov/confluence/display/newsletter/2020/05/07/The+Pomodoro+Technique%3A+An+Effective+Time+Management+Tool)
 
 # INSTALLATION
+
+## Install-Module Script
+1. Run the script as an Admin
+1. Script will check for the folder to install to, and if it's not there make it
+1. Script then copies file(s) over and then imports them
+
+## Manual
 1. Save the `PomodoroPS.psm1` to `C:\Program Files\WindowsPowerShell\Modules\PomodoroPS`
 1. Run `Import-Module -Name PomodoroPS`
 1. ????
