@@ -53,6 +53,37 @@ Use the Pomodoro Technique from PowerShell. Import the Module and type `Start-Po
 - Time in Milliseconds to leave the notification up
 - Integer
 
+## Display-MessageBox
+### Text
+- What you want the Popup to Say.
+- String
+
+### Title
+- Title of the box
+- String
+
+### Button
+- What kind of Button you want
+- String
+
+| Word | Number |
+| --- | --- |
+| OK | 0 |
+| OKCancel | 1 |
+| YesNoCancel | 3 |
+| YesNo | 4 |
+
+### Icon
+- What kind of icon to display
+- String
+
+| Word | Number |
+| --- | --- |
+| None | 0 |
+| Hand/error/stop | 16 |
+| Question | 32 |
+| Warning/Exclamation | 48 |
+| Asterisk/Information | 64 |
 
 # EXAMPLES
 `Start-PomodoroTimer`

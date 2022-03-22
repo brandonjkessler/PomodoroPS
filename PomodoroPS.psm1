@@ -30,7 +30,7 @@ Function Start-Pomodoro {
             [parameter(Mandatory)]
             [string]$Title,
             [string]$Button = '0', #OK 0, OKCancel 1, YesNoCancel 3, YesNo 4
-            [string]$Icon = 'Asterisk'
+            [string]$Icon = 'Asterisk' # None 0, Hand/Error/Stop 16, Question 32, Warning/Exlcamation 48, Asterisk/Information 64
         )
 
         Add-Type -AssemblyName System.Windows.Forms 
