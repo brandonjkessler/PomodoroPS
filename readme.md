@@ -48,3 +48,6 @@ Use the Pomodoro Technique from PowerShell. Import the Module and type `Start-Po
 
 
 # EXAMPLES
+`Start-PomodoroTimer`
+
+`Start-PomodoroTimer -PomodoroMinutes 50 -BreakMinutes 10`
