@@ -27,6 +27,7 @@ Function Start-Pomodoro {
         param(
             [parameter(Mandatory)]
             [string]$Activity,
+            # 1440 minutes equal 24 Hours
             [parameter(Mandatory)]
             [ValidateRange(1,1440)]
             [int]$Minutes,
