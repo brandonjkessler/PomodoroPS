@@ -5,9 +5,15 @@ Use the Pomodoro Technique from PowerShell
 Use the Pomodoro Technique from PowerShell. Import the Module and type `Start-Pomodoro` from within PowerShell.
 [The Pomodoro Technique: An Effective Time Management Tool](https://science.nichd.nih.gov/confluence/display/newsletter/2020/05/07/The+Pomodoro+Technique%3A+An+Effective+Time+Management+Tool)
 
+# INSTALLATION
+1. Save the `PomodoroPS.psm1` to `C:\Program Files\WindowsPowerShell\Modules\PomodoroPS`
+1. Run `Import-Module -Name PomodoroPS.psm1`
+1. ????
+1. Profit!
+
 # PARAMETERS
 ## PomodoroMinutes
-- Enter the amoung of minutes you want your Pomodoro to be
+- Enter the amount of minutes you want your Pomodoro to be
 - Only accepts a range of 1 - 1440
 ## BreakMinutes
 - Enter the amount of minutes you want for a break
