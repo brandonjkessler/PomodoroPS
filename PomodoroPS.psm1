@@ -44,12 +44,13 @@ Function Start-Pomodoro {
 
         }
 
-        Write-Host "Starting $Activity for $Minutes minutes. You will be warned when there are $WarningMinutes minutes left."
-
         [int]$TotalSec = $Minutes * 60
         [int]$StartSec = 0
         [int]$WarnSec = $WarningMinutes * 60
         [int]$WarnSound = 0
+
+        Make-Toast -Text "Starting $Activity for $Minutes minutes. You will be warned when there are $WarningMinutes minutes left." -Title $Activity -Milliseconds ($WarnSec * 1000)
+        Write-Host "Starting $Activity for $Minutes minutes. You will be warned when there are $WarningMinutes minutes left."
 
         # Better grammar
         if($WarningMinutes -eq 1){
@@ -68,7 +69,7 @@ Function Start-Pomodoro {
             if($timeLeft -le $WarnSec){
                 if($WarnSound -lt 1){
                     Write-Warning "$WarningText."
-                    Make-Toast -Text $WarningText -Title $Activity -Miliseconds $($WarnSec * 1000)
+                    Make-Toast -Text $WarningText -Title $Activity -Miliseconds ($WarnSec * 1000)
                     #[System.Media.SystemSounds]::Exclamation.Play();
                     $WarnSound++
                 }
