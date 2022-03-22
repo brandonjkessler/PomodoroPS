@@ -89,3 +89,12 @@ Use the Pomodoro Technique from PowerShell. Import the Module and type `Start-Po
 `Start-PomodoroTimer`
 
 `Start-PomodoroTimer -PomodoroMinutes 50 -BreakMinutes 10`
+
+# To Do
+- Allow for a set amount of Pomodoross
+- Log how many total Pomodoro's have been done that day
+    - Could use the Set amount of Pomodoros and see if you hit your goal or not, and even a weekly running total
+- Set a task name for the Pomodoro
+    - This would be nice for Logging
+- Set a Project Name for the Pomodoro
+    - Also nice for logging.

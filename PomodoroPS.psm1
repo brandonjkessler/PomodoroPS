@@ -115,7 +115,3 @@ Function Start-Pomodoro {
     Start-Timer -Activity 'Break' -Minutes "$BreakMinutes" -WarningMinutes "$($BreakMinutes / 5)"
 
 }
-
-# ToDo
-# - Allow for a set amount of Pomodoro's
-# - Log how many total Pomodoro's have been done that day
