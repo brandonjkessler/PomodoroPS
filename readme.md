@@ -26,6 +26,21 @@ Use the Pomodoro Technique from PowerShell. Import the Module and type `Start-Po
 - Enter the amount of minutes you want for a break
 - Only accepts a range of 1 - 1440
 - If the `BreakMinutes` is greater than `PomodoroMinutes` then `BreakMinutes` is calculated at 1/5 the `PomodoroMinutes`
+## Task
+- Mandatory
+- What are you working on
+- String
+## Project
+- Optional
+- Add a Project you are working on
+- String
+## Gui
+- type either `$true` or `$false` to display the popups and notifications, or not.
+- Added so that if you want to run completely in CLI you can.
+- Boolean
+## PomodoroLogPath
+- Location to log your progress in a CSV file
+- string
 
 
 # FUNCTIONS
@@ -92,9 +107,6 @@ Use the Pomodoro Technique from PowerShell. Import the Module and type `Start-Po
 
 # To Do
 - Allow for a set amount of Pomodoros
+- Allow for tracking of Pomodoros. Every 4 Pomodoros you should take a long break.
 - Log how many total Pomodoros have been done that day
     - Could use the Set amount of Pomodoros and see if you hit your goal or not, and even a weekly running total
-- Set a task name for the Pomodoro
-    - This would be nice for Logging
-- Set a Project Name for the Pomodoro
-    - Also nice for logging.
